@@ -1,0 +1,70 @@
+#1
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+result = [x for x in a if x < 5]
+print(result)
+output:
+[1, 1, 2, 3]
+
+#2
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+common_elements = list(set(a) & set(b))
+print(common_elements)
+output:
+[1, 2, 3, 5, 8, 13]
+
+#3
+import operator
+d = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+
+sorted_d_asc = dict(sorted(d.items(), key=operator.itemgetter(1)))
+print("Ascending:", sorted_d_asc)
+
+sorted_d_desc = dict(sorted(d.items(), key=operator.itemgetter(1), reverse=True))
+print("Descending:", sorted_d_desc)
+output:
+Ascending: {0: 0, 2: 1, 1: 2, 4: 3, 3: 4}
+Descending: {3: 4, 4: 3, 1: 2, 2: 1, 0: 0}
+#4
+dict_a = {1: 10, 2: 20}
+dict_b = {3: 30, 4: 40}
+dict_c = {5: 50, 6: 60}
+
+all_dict = {**dict_a, **dict_b, **dict_c}
+print(all_dict)
+output:
+{1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+#5
+my_dict = {'a': 500, 'b': 5874, 'c': 560, 'd': 400, 'e': 5874, 'f': 20}
+top_three_keys = sorted(my_dict, key=my_dict.get, reverse=True)[:3]
+print(top_three_keys)
+output:
+['b', 'e', 'c']
+#6
+number = 123  # example integer
+
+# Binary
+binary_str = bin(number)[2:]
+print("Binary:", binary_str)
+
+# Octal
+octal_str = oct(number)[2:]
+print("Octal:", octal_str)
+
+# Hexadecimal
+hex_str = hex(number)[2:]
+print("Hexadecimal:", hex_str)
+output:
+Binary: 1111011
+Octal: 173
+Hexadecimal: 7b
+#7
+def print_pascals_triangle(n):
+    row = [1]
+    for _ in range(n):
+        print(" ".join(map(str, row)).center(n * 2))
+        row = [1] + [row[i] + row[i + 1] for i in range(len(row) - 1)] + [1]
+
+n = 5
+print_pascals_triangle(n)
+output^
